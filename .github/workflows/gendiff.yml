@@ -6,15 +6,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        # we want to test our package on several versions of Python
-        python-version: [3.11]
     steps:
       - uses: actions/checkout@v3
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v2
         with:
-          python-version: ${{ matrix.python-version }}
+        python-version: 3.11
         # make depends on poetry
       - name: Install dependencies
         run: |
