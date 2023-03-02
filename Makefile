@@ -22,6 +22,5 @@ lint:
 test:
 	poetry run pytest
 
-test-cov:
-	./cc-test-reporter format-coverage 
-	./cc-test-reporter upload-coverage
+reporter:
+	poetry run pytest --cov=gendiff --cov-report xml
