@@ -43,3 +43,5 @@ def make_lower_bool(val):
     if isinstance(val, bool):
         return str(val).lower()
     return val
+
+print(generate_diff('tests/fixtures/file1.json', 'tests/fixtures/file2.json'))
