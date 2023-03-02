@@ -6,3 +6,10 @@
   + timeout: 20
   + verbose: true
 }
+
+
+{
+  key1: 1
+  key2: value2
+  key3: true
+}
