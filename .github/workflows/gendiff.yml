@@ -1,5 +1,7 @@
 name: Gendiff CI
-
+env:
+  global:
+    - CC_TEST_REPORTER_ID=2079408d0a8c12c502f8fbc14736c15a1a8ef948952934069785b1e5e6ee4453
 on: push
 jobs:
   build:

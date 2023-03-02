@@ -21,6 +21,7 @@ lint:
 
 test:
 	poetry run pytest
-	
+
 test-cov:
-	poetry run pytest --cov
+	./cc-test-reporter format-coverage 
+	./cc-test-reporter upload-coverage
