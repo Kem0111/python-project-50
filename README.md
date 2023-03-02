@@ -1,6 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Kem0111/python-project-50/workflows/hexlet-check/badge.svg)](https://github.com/Kem0111/python-project-50/actions) [![Gendiff CI](https://github.com/Kem0111/python-project-50/actions/workflows/gendiff.yml/badge.svg)](https://github.com/Kem0111/python-project-50/actions/workflows/gendiff.yml)  <a href="https://codeclimate.com/github/Kem0111/python-project-50/maintainability"><img src="https://api.codeclimate.com/v1/badges/35639aa2d858c45a7a31/maintainability" /></a>
-
+<a href="https://codeclimate.com/github/Kem0111/python-project-50/test_coverage"><img src="https://api.codeclimate.com/v1/badges/35639aa2d858c45a7a31/test_coverage" /></a>
 
 ### **To install gendiff enter the command:**
 
