@@ -20,10 +20,12 @@ jobs:
           make install
       - run: make lint
       - run: make test
-      - name: Test & publish code coverage
+      - run: make test-cov
+      - name: Upload test coverage to Code Climate
         uses: paambaati/codeclimate-action@v3.2.0
-        if: github.ref_name == 'main'
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: make reporter
+          coverageCommand: pytest --cov-report xml --cov-report html --cov=my_package tests/
+      - name: Upload coverage to Code Climate
+        run: cc-test-reporter after-build -r ${{ secrets.CC_TEST_REPORTER_ID }}
