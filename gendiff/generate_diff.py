@@ -4,21 +4,25 @@ import itertools
 
 def generate_diff(file_path1, file_path2):
     with open(file_path1, 'r') as file1, open(file_path2, 'r') as file2:
-        data1 = json.load(file1)
-        data2 = json.load(file2)
-        dict_with_diff = {}
-        for key in sorted(set(data1.keys()) | set(data2.keys())):
-            if key in data1 and key in data2:
-                if data1[key] == data2[key]:
-                    dict_with_diff[key] = data1[key]
-                else:
-                    dict_with_diff[f'- {key}'] = data1[key]
-                    dict_with_diff[f'+ {key}'] = data2[key]
-            elif key in data1 and key not in data2:
-                dict_with_diff[f'- {key}'] = data1[key]
+        first_file_data = json.load(file1)
+        second_file_data = json.load(file2)
+        return make_diff_dict(first_file_data, second_file_data)
+
+
+def make_diff_dict(first_file, second_file):
+    dict_with_diff = {}
+    for key in sorted(set(first_file.keys()) | set(second_file.keys())):
+        if key in first_file and key in second_file:
+            if first_file[key] == second_file[key]:
+                dict_with_diff[key] = first_file[key]
             else:
-                dict_with_diff[f'+ {key}'] = data2[key]
-        return stringify(dict_with_diff)
+                dict_with_diff[f'- {key}'] = first_file[key]
+                dict_with_diff[f'+ {key}'] = second_file[key]
+        elif key in first_file and key not in second_file:
+            dict_with_diff[f'- {key}'] = first_file[key]
+        else:
+            dict_with_diff[f'+ {key}'] = second_file[key]
+    return stringify(dict_with_diff)
 
 
 def stringify(value, replacer=' ', spases_count=2, depth=0):
