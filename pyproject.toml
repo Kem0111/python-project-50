@@ -16,6 +16,9 @@ coverage = "^7.2.1"
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.gendiff:main"
 
+[tool.poetry.group.dev.dependencies]
+codeclimate-test-reporter = "^0.2.3"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
