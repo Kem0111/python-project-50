@@ -3,10 +3,7 @@ import itertools
 
 
 def generate_diff(file_path1, file_path2):
-    with open(file_path1, 'r') as file1, open(file_path2, 'r') as file2:
-        first_file_data = json.load(file1)
-        second_file_data = json.load(file2)
-        return make_diff_dict(first_file_data, second_file_data)
+        return make_diff_dict(file_path1, file_path2)
 
 
 def make_diff_dict(first_file, second_file):
