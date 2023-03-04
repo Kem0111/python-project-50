@@ -1,6 +1,5 @@
 from gendiff.engine import output_file
 import os
-from gendiff.scripts.gendiff import main
 
 
 def get_fixture_path(file_name):

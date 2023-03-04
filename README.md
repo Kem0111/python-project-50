@@ -7,6 +7,11 @@
 ```python3 -m pip install --user git+https://github.com/Kem0111/python-project-50.git```
 
 
-## Rec to install scripts and use gendiff
+## Rec to install scripts and use gendiff to compair two json files
 
 <a href="https://asciinema.org/a/8JEmvwA03nzbRWhPFYbSesGdH" target="_blank"><img src="https://asciinema.org/a/8JEmvwA03nzbRWhPFYbSesGdH.svg" /></a>
+
+
+## Rec to install scripts and use gendiff to compair two yaml files
+
+<a href="https://asciinema.org/a/wtF8rkchyjt2c8nNbpLCV0YtZ" target="_blank"><img src="https://asciinema.org/a/wtF8rkchyjt2c8nNbpLCV0YtZ.svg" /></a>

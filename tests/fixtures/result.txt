@@ -21,3 +21,6 @@
   proxy: 123.234.53.22
   timeout: 50
 }
+
+/Users/saidavelieva/Desktop/python/python-project-50/tests/fixtures/file1.yml
+/Users/saidavelieva/Desktop/python/python-project-50/tests/fixtures/file2.yml
