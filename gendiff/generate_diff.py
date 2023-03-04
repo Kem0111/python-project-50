@@ -1,9 +1,8 @@
-import json
 import itertools
 
 
 def generate_diff(file_path1, file_path2):
-        return make_diff_dict(file_path1, file_path2)
+    return make_diff_dict(file_path1, file_path2)
 
 
 def make_diff_dict(first_file, second_file):
