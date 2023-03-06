@@ -27,3 +27,6 @@ test-cov:
 
 reporter:
 	coverage report -m 
+
+run:
+	poetry run gendiff 'tests/fixtures/nested_file1.json' 'tests/fixtures/nested_file2.json'
