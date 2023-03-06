@@ -15,3 +15,8 @@
 ## Rec to install scripts and use gendiff to compair two yaml files
 
 <a href="https://asciinema.org/a/wtF8rkchyjt2c8nNbpLCV0YtZ" target="_blank"><img src="https://asciinema.org/a/wtF8rkchyjt2c8nNbpLCV0YtZ.svg" /></a>
+
+
+## Rec to install scripts and use gendiff to compair two nested files
+
+<a href="https://asciinema.org/a/VsxnKxShz5VcPPMrgHjMIPJEG" target="_blank"><img src="https://asciinema.org/a/VsxnKxShz5VcPPMrgHjMIPJEG.svg" /></a>
