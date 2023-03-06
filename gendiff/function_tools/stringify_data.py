@@ -1,19 +1,27 @@
 import itertools
 
 
-def stringify(data, indent, replacer, left_shift):
-    depth=1
-    spases_count=0
-    final_braket_indent = replacer * spases_count
-    current_indent_befor_key = calculate_indent_count(
-        data, replacer, indent, depth)(left_shift)
+PERMANENT_INDENT = 4
+SPECIAL_SYMB = ' '
+LEFT_SHIFT = 2
+
+
+def stringify(data, depth=1, spases_count=0):
+
+    def colculate_indent(key):
+        if key[0].isalnum():
+            return SPECIAL_SYMB*(PERMANENT_INDENT*depth)
+        return SPECIAL_SYMB*(PERMANENT_INDENT*depth-LEFT_SHIFT)
+    
+    final_braket_indent = SPECIAL_SYMB * spases_count
+    key = get_key(data)
+    current_indent_befor_key = colculate_indent(key)
 
     def walk(key, value):
-        spases_count = spases_count + indent
-        depth = depth + 1 
+   
         return f'''{
             current_indent_befor_key}{key}: {stringify(
-            value, indent, replacer, left_shift
+            value, depth = depth + 1, spases_count = spases_count + PERMANENT_INDENT
             ) if isinstance(value, dict) else make_js_format(value)
             }'''
 
@@ -22,15 +30,8 @@ def stringify(data, indent, replacer, left_shift):
     return '\n'.join(result)
 
 
-def calculate_indent_count(data, replacer, indent, depth):
-    key = ''.join(filter(lambda key: key, data.keys()))
-    if key[0].isalnum():
-        return replacer*(indent*depth)
-    
-    def shift_key(left_shift):
-        return replacer*(indent*depth-left_shift)
-    
-    return shift_key()
+def get_key(data):
+    return ''.join(filter(lambda key: key, data.keys()))
 
 
 def make_js_format(val):
