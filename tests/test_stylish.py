@@ -28,17 +28,21 @@ def test_diff_plain_json_fiiles():
     assert stylish(plain_file1_json, plain_file2_json) == result_data[0]
 
 
+def test_same_file():
+    assert stylish(plain_file1_json, plain_file1_json) == result_data[1]
+
+
 def test_diff_plain_yaml_fiiles():
     assert stylish(plain_file1_yaml, plain_file2_yaml) == result_data[0]
 
 
 def test_diff_nested_json_files():
-    assert stylish(nested_file1_json, nested_file2_json) == result_data[3]
+    assert stylish(nested_file1_json, nested_file2_json) == result_data[2]
 
 
-def test_diff_neste_same_yaml_files():
-    assert stylish(nested_file1_yaml, nested_file2_yaml) == result_data[3]
+def test_diff_nested_yaml_files():
+    assert stylish(nested_file1_yaml, nested_file2_yaml) == result_data[2]
 
 
 def test_nested_yml_json_file():
-    assert stylish(nested_file1_json, nested_file2_yaml) == result_data[3]
+    assert stylish(nested_file1_json, nested_file2_yaml) == result_data[2]
