@@ -1,14 +1,17 @@
 import itertools
 
 
-def stringify(data, indent, replacer,left_shift, spases_count=0, depth=1):
-    current_indent_befor_key = calculate_indent_count(data, replacer, indent, depth, left_shift)
+def stringify(data, indent, replacer, left_shift, spases_count=0, depth=1):
+    current_indent_befor_key = calculate_indent_count(
+        data, replacer, indent, depth, left_shift
+        )
     final_braket_indent = replacer * spases_count
 
     def walk(key, value):
         return f'''{
             current_indent_befor_key}{key}: {stringify(
-            value, indent, replacer, left_shift, spases_count=spases_count+indent, depth=depth+1
+            value, indent, replacer, left_shift,
+            spases_count=spases_count+indent, depth=depth+1
             ) if isinstance(value, dict) else make_js_format(value)
             }'''
 
@@ -30,7 +33,7 @@ def make_js_format(val):
         if str(val) == 'None':
             return 'null'
         return val
-    
+
     if isinstance(val, bool):
         return str(val).lower()
     return make_none_string(val)
