@@ -25,8 +25,8 @@ def stringify(data, depth=1, spases_count=0):
             ) if isinstance(value, dict) else make_js_format(value)
             }'''
 
-    res = map(lambda x, y: walk(x, y), data.keys(), data.values())
-    result = itertools.chain('{', res, [final_braket_indent + '}'])
+    diff_data = map(lambda x, y: walk(x, y), data.keys(), data.values())
+    result = itertools.chain('{', diff_data, [final_braket_indent + '}'])
     return '\n'.join(result)
 
 

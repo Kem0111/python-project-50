@@ -20,3 +20,9 @@
 ## Rec to install scripts and use gendiff to compair two nested files
 
 <a href="https://asciinema.org/a/VsxnKxShz5VcPPMrgHjMIPJEG" target="_blank"><img src="https://asciinema.org/a/VsxnKxShz5VcPPMrgHjMIPJEG.svg" /></a>
+
+
+## If you want to compair two files in plain formant use:  
+```gendiff -f --format plain first/file/path second/file/path```  
+
+<a href="https://asciinema.org/a/p2Ci7V0FkEucdRtcIs39cyjFj" target="_blank"><img src="https://asciinema.org/a/p2Ci7V0FkEucdRtcIs39cyjFj.svg" /></a>

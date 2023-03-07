@@ -13,7 +13,7 @@ def read(file_path):
     return result
 
 
-result_data = read(get_fixture_path('result.txt')).rstrip().split('\n\n\n')
+result_data = read(get_fixture_path('result_stylish.txt')).rstrip().split('\n\n\n')
 plain_file1_json = get_fixture_path('file1.json')
 plain_file2_json = get_fixture_path('file2.json')
 plain_file1_yaml = get_fixture_path('file1.yml')

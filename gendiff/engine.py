@@ -1,5 +1,6 @@
 import argparse
 from gendiff.stylish import stylish
+from gendiff.plain import plain
 
 
 def run_compare_files():
@@ -16,4 +17,7 @@ def run_compare_files():
         help="Set format of output"
     )
     args = parser.parse_args()
-    print(stylish(args.first_file, args.second_file))
+    if args.format == 'plain':
+        print(plain(args.first_file, args.second_file))
+    else:
+        print(stylish(args.first_file, args.second_file))
