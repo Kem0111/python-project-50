@@ -26,3 +26,9 @@
 ```gendiff -f --format plain first/file/path second/file/path```  
 
 <a href="https://asciinema.org/a/p2Ci7V0FkEucdRtcIs39cyjFj" target="_blank"><img src="https://asciinema.org/a/p2Ci7V0FkEucdRtcIs39cyjFj.svg" /></a>
+
+
+## If you want to compair two files in json formant use:  
+```gendiff -f --format json first/file/path second/file/path```
+
+<a href="https://asciinema.org/a/TO3SZf84aBICEGG7CStCNN2Bk" target="_blank"><img src="https://asciinema.org/a/TO3SZf84aBICEGG7CStCNN2Bk.svg" /></a>

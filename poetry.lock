@@ -249,6 +249,18 @@ files = [
 ]
 
 [[package]]
+name = "jsondiff"
+version = "2.0.0"
+description = "Diff JSON and JSON-like structures in Python"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "jsondiff-2.0.0-py3-none-any.whl", hash = "sha256:689841d66273fc88fc79f7d33f4c074774f4f214b6466e3aff0e5adaf889d1e0"},
+    {file = "jsondiff-2.0.0.tar.gz", hash = "sha256:2795844ef075ec8a2b8d385c4d59f5ea48b08e7180fce3cb2787be0db00b1fb4"},
+]
+
+[[package]]
 name = "mccabe"
 version = "0.7.0"
 description = "McCabe checker, plugin for flake8"
@@ -445,4 +457,4 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "f2f480ba0c2077a389a2b64cb75e0f2c2c46d0e682886e58550c101d00ed9442"
+content-hash = "16d17ff6a8bee4ee7e492ad57c82d882c5544cb6fffc2b62589616910584ff4e"

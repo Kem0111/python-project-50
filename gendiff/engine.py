@@ -1,6 +1,7 @@
 import argparse
 from gendiff.stylish import stylish
 from gendiff.plain import plain
+from gendiff.json import json
 
 
 def run_compare_files():
@@ -19,5 +20,7 @@ def run_compare_files():
     args = parser.parse_args()
     if args.format == 'plain':
         print(plain(args.first_file, args.second_file))
+    elif args.format == 'json':
+        print(json(args.first_file, args.second_file))
     else:
         print(stylish(args.first_file, args.second_file))
