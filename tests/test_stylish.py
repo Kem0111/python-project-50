@@ -1,4 +1,4 @@
-from gendiff.stylish import stylish
+from gendiff.engine import generat_diff
 import os
 
 
@@ -24,25 +24,18 @@ nested_file1_yaml = get_fixture_path('nested_file1.yml')
 nested_file2_yaml = get_fixture_path('nested_file2.yaml')
 
 
-def test_diff_plain_json_fiiles():
-    assert stylish(plain_file1_json, plain_file2_json) == result_data[0]
+def test_stylish_json():
+    assert generat_diff(plain_file1_json, plain_file2_json) == result_data[0]
+    assert generat_diff(plain_file1_json, plain_file1_json) == result_data[1]
+    assert generat_diff(nested_file1_json, nested_file2_json) == result_data[2]
+
+def test_stylish_json_yaml():
+    assert generat_diff(nested_file1_json, nested_file2_yaml) == result_data[2]
 
 
-def test_same_file():
-    assert stylish(plain_file1_json, plain_file1_json) == result_data[1]
+def test_diff_stylish_yaml():
+    assert generat_diff(plain_file1_yaml, plain_file2_yaml) == result_data[0]
+    assert generat_diff(nested_file1_yaml, nested_file2_yaml) == result_data[2]
 
 
-def test_diff_plain_yaml_fiiles():
-    assert stylish(plain_file1_yaml, plain_file2_yaml) == result_data[0]
 
-
-def test_diff_nested_json_files():
-    assert stylish(nested_file1_json, nested_file2_json) == result_data[2]
-
-
-def test_diff_nested_yaml_files():
-    assert stylish(nested_file1_yaml, nested_file2_yaml) == result_data[2]
-
-
-def test_nested_yml_json_file():
-    assert stylish(nested_file1_json, nested_file2_yaml) == result_data[2]

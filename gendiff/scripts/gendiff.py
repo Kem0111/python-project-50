@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-from gendiff.gendiff import generate_diff
+from gendiff.cli import get_cli_args
+from gendiff.engine import generat_diff
 
 
 def main():
-    generate_diff()
+    path1, path2, format_ = get_cli_args()
+    print(generat_diff(path1, path2, formatter=format_))
 
 
 if __name__ == '__main__':

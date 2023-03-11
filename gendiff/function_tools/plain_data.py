@@ -1,4 +1,4 @@
-def get_plain_data(first_file, second_file, path=''):
+def get_plain_diff(first_file, second_file, path=''):
 
     def walk(key, file1, file2):
         if key in file1 and key in file2:
@@ -20,7 +20,7 @@ def get_compair(key, file1, file2, path):
     if all(
         isinstance(val.get(key), dict) for val in (file1, file2)
     ):
-        return get_plain_data(file1[key], file2[key], path=path+key+'.')
+        return get_plain_diff(file1[key], file2[key], path=path+key+'.')
     elif file1[key] != file2[key]:
         return f"Property '{path+key}' was updated. \
 From {make_string_format(file1[key])} to {make_string_format(file2[key])}"

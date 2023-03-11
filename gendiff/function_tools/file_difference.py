@@ -1,4 +1,4 @@
-def get_generate_diff(first_file_data, second_file_data, indent):
+def get_diff(first_file_data, second_file_data, indent):
     data_diff = {}
     all_keys = set(first_file_data.keys()) | set(second_file_data.keys())
     for key in sorted(all_keys):
@@ -20,7 +20,7 @@ def get_compare_dict(key, first_dict, second_dict, indent):
         isinstance(val.get(key), dict) for val in (first_dict, second_dict)
     ):
         return {
-            f'{indent}{key}': get_generate_diff(first_dict[key],
-                                                second_dict[key], indent)
+            f'{indent}{key}': get_diff(first_dict[key],
+                                       second_dict[key], indent)
         }
     return {f'- {key}': first_dict[key], f'+ {key}': second_dict[key]}
