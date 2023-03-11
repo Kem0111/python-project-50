@@ -1,4 +1,4 @@
-from gendiff.gendiff import generat_diff
+from gendiff.engine import generate_diff
 import os
 
 
@@ -25,17 +25,17 @@ nested_file2_yaml = get_fixture_path('nested_file2.yaml')
 
 
 def test_stylish_json():
-    assert generat_diff(plain_file1_json, plain_file2_json) == result_data[0]
-    assert generat_diff(plain_file1_json, plain_file1_json) == result_data[1]
-    assert generat_diff(nested_file1_json, nested_file2_json) == result_data[2]
+    assert generate_diff(plain_file1_json, plain_file2_json) == result_data[0]
+    assert generate_diff(plain_file1_json, plain_file1_json) == result_data[1]
+    assert generate_diff(nested_file1_json, nested_file2_json) == result_data[2]
 
 def test_stylish_json_yaml():
-    assert generat_diff(nested_file1_json, nested_file2_yaml) == result_data[2]
+    assert generate_diff(nested_file1_json, nested_file2_yaml) == result_data[2]
 
 
 def test_diff_stylish_yaml():
-    assert generat_diff(plain_file1_yaml, plain_file2_yaml) == result_data[0]
-    assert generat_diff(nested_file1_yaml, nested_file2_yaml) == result_data[2]
+    assert generate_diff(plain_file1_yaml, plain_file2_yaml) == result_data[0]
+    assert generate_diff(nested_file1_yaml, nested_file2_yaml) == result_data[2]
 
 
 

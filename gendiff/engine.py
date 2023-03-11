@@ -11,7 +11,7 @@ STRING_FORMAT = {
 }
 
 
-def generat_diff(file_path1, file_path2, formatter='stylish'):
+def generate_diff(file_path1, file_path2, formatter='stylish'):
     file1_data, file2_data = read_file(file_path1, file_path2)
     format_function = STRING_FORMAT[formatter]
     return format_function(file1_data, file2_data)
