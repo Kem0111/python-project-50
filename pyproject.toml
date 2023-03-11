@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
+description = "Lbrary for compair two json or yaml files"
 authors = ["Kem"]
 readme = "README.md"
 packages = [{include = "gendiff"}]
