@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Lbrary for compair two json or yaml files"
 authors = ["Kamran <diyeqo@icloud.com>"]
 readme = "README.md"
-repository = https://github.com/Kem0111/python-project-50
+repository = "https://github.com/Kem0111/python-project-50"
 packages = [{include = "gendiff"}]
 
 [tool.poetry.dependencies]
