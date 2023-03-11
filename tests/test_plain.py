@@ -1,5 +1,5 @@
 from tests import test_stylish
-from gendiff.engine import generat_diff
+from gendiff.gendiff import generat_diff
 
 
 result_data = test_stylish.read(test_stylish.get_fixture_path('result_plain.txt')).rstrip().split('\n\n\n')

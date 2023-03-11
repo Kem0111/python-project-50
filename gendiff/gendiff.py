@@ -1,4 +1,3 @@
-
 from gendiff.formatter.json import json
 from gendiff.formatter.stylish import stylish
 from gendiff.formatter.plain import plain

@@ -1,4 +1,4 @@
-from gendiff.engine import generat_diff
+from gendiff.gendiff import generat_diff
 import os
 
 
