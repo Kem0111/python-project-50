@@ -2,7 +2,7 @@ import argparse
 from gendiff.stylish import stylish
 from gendiff.plain import plain
 from gendiff.json import json
-from gendiff.generate_diff import generate_diff
+from gendiff.gendiff import generate_diff
 
 
 def run_compare_files():
