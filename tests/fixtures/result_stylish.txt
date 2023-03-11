@@ -30,7 +30,7 @@
         setting6: {
             doge: {
               - wow: 
-              + wow: so much
+              + wow: 0
             }
             key: value
           + ops: vops

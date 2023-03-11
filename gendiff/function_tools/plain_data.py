@@ -34,6 +34,8 @@ def make_string_format(value):
             return 'null'
         elif isinstance(val, bool):
             return str(val).lower()
+        elif isinstance(value, int):
+            return val
         return f"'{val}'"
 
     if isinstance(value, dict):

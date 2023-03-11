@@ -36,6 +36,3 @@ def test_stylish_json_yaml():
 def test_diff_stylish_yaml():
     assert generate_diff(plain_file1_yaml, plain_file2_yaml) == result_data[0]
     assert generate_diff(nested_file1_yaml, nested_file2_yaml) == result_data[2]
-
-
-
