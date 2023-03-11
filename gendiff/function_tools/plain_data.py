@@ -20,7 +20,7 @@ def get_compair(key, file1, file2, path):
     if all(
         isinstance(val.get(key), dict) for val in (file1, file2)
     ):
-        return get_plain_diff(file1[key], file2[key], path=path+key+'.')
+        return get_plain_diff(file1[key], file2[key], path=path + key + '.')
     elif file1[key] != file2[key]:
         return f"Property '{path+key}' was updated. \
 From {make_string_format(file1[key])} to {make_string_format(file2[key])}"

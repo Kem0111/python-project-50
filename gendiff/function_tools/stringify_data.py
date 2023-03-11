@@ -10,8 +10,8 @@ def stringify(data, depth=1, spases_count=0):
 
     def colculate_indent(key):
         if key[0].isalnum():
-            return SPECIAL_SYMB*(PERMANENT_INDENT*depth)
-        return SPECIAL_SYMB*(PERMANENT_INDENT*depth-LEFT_SHIFT)
+            return SPECIAL_SYMB * (PERMANENT_INDENT * depth)
+        return SPECIAL_SYMB * (PERMANENT_INDENT * depth - LEFT_SHIFT)
 
     final_braket_indent = SPECIAL_SYMB * spases_count
     key = get_key(data)

@@ -4,7 +4,7 @@ import os
 
 def get_fixture_path(file_name):
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    return os.path.join(current_dir, 'fixtures', file_name)    
+    return os.path.join(current_dir, 'fixtures', file_name)
 
 
 def read(file_path):
@@ -28,6 +28,7 @@ def test_stylish_json():
     assert generate_diff(plain_file1_json, plain_file2_json) == result_data[0]
     assert generate_diff(plain_file1_json, plain_file1_json) == result_data[1]
     assert generate_diff(nested_file1_json, nested_file2_json) == result_data[2]
+
 
 def test_stylish_json_yaml():
     assert generate_diff(nested_file1_json, nested_file2_yaml) == result_data[2]
