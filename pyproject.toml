@@ -6,10 +6,9 @@ authors = ["Kamran <diyeqo@icloud.com>"]
 readme = "README.md"
 repository = "https://github.com/Kem0111/python-project-50"
 packages = [{include = "gendiff"}]
-python = ">=3.11,<4.0"
 
 [tool.poetry.dependencies]
-python = ">=3.11,<4.0"
+python = ">=3.10,<4.0"
 flake8 = "^6.0.0"
 pytest = "^7.2.1"
 pytest-cov = "^4.0.0"
