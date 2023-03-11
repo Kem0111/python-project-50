@@ -9,5 +9,6 @@ INDENT = '  '
 def stylish(file1_path, file2_path):
     first_file_data, second_file_data = extract_file_data(file1_path,
                                                           file2_path)
-    data_difference = get_generate_diff(first_file_data, second_file_data, INDENT)
+    data_difference = get_generate_diff(first_file_data,
+                                        second_file_data, INDENT)
     return stringify(data_difference)

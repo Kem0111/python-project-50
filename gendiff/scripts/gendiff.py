@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-from gendiff.engine import run_compare_files
+from gendiff.gendiff import generate_diff
 
 
 def main():
-    run_compare_files()
+    generate_diff()
 
 
 if __name__ == '__main__':

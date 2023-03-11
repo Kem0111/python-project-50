@@ -19,6 +19,6 @@ def get_compare_dict(key, first_dict, second_dict, indent):
     elif all(
         isinstance(val.get(key), dict) for val in (first_dict, second_dict)
     ):
-        return {f'{indent}{key}': generate_diff(first_dict[key],
+        return {f'{indent}{key}': get_generate_diff(first_dict[key],
                                                 second_dict[key], indent)}
     return {f'- {key}': first_dict[key], f'+ {key}': second_dict[key]}
