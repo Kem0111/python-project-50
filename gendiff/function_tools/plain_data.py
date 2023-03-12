@@ -1,3 +1,6 @@
+from gendiff.function_tools.js_format import make_js_format
+
+
 def get_plain_diff(first_file, second_file, path=''):
 
     def walk(key, file1, file2):
@@ -28,16 +31,8 @@ From {make_string_format(file1[key])} to {make_string_format(file2[key])}"
 
 
 def make_string_format(value):
-
-    def make_js_format(val):
-        if str(val) == 'None':
-            return 'null'
-        elif isinstance(val, bool):
-            return str(val).lower()
-        elif isinstance(value, int):
-            return val
-        return f"'{val}'"
-
-    if isinstance(value, dict):
+    if isinstance(value, (dict, list, set, tuple)):
         return '[complex value]'
+    elif not isinstance(value, (type(None), bool, int)):
+        return f"'{value}'"
     return make_js_format(value)

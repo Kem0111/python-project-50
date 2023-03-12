@@ -1,5 +1,5 @@
 import itertools
-
+from gendiff.function_tools.js_format import make_js_format
 
 PERMANENT_INDENT = 4
 SPECIAL_SYMB = ' '
@@ -32,15 +32,3 @@ def stringify(data, depth=1, spases_count=0):
 
 def get_key(data):
     return ''.join(filter(lambda key: key, data.keys()))
-
-
-def make_js_format(val):
-
-    def make_null_string(val):
-        if str(val) == 'None':
-            return 'null'
-        return val
-
-    if isinstance(val, bool):
-        return str(val).lower()
-    return make_null_string(val)
