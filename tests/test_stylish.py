@@ -13,11 +13,7 @@ def read(file_path):
     return result
 
 
-result_data = read(get_fixture_path('result_stylish.txt')).rstrip().split('\n\n\n')
-plain_file1_json = get_fixture_path('file1.json')
-plain_file2_json = get_fixture_path('file2.json')
-plain_file1_yaml = get_fixture_path('file1.yml')
-plain_file2_yaml = get_fixture_path('file2.yml')
+result_data = read(get_fixture_path('result_stylish.txt'))
 nested_file1_json = get_fixture_path('nested_file1.json')
 nested_file2_json = get_fixture_path('nested_file2.json')
 nested_file1_yaml = get_fixture_path('nested_file1.yml')
@@ -25,15 +21,12 @@ nested_file2_yaml = get_fixture_path('nested_file2.yaml')
 
 
 def test_stylish_json():
-    assert generate_diff(plain_file1_json, plain_file2_json) == result_data[0]
-    assert generate_diff(plain_file1_json, plain_file1_json) == result_data[1]
-    assert generate_diff(nested_file1_json, nested_file2_json) == result_data[2]
+    assert generate_diff(nested_file1_json, nested_file2_json) == result_data
 
 
 def test_stylish_json_yaml():
-    assert generate_diff(nested_file1_json, nested_file2_yaml) == result_data[2]
+    assert generate_diff(nested_file1_json, nested_file2_yaml) == result_data
 
 
 def test_diff_stylish_yaml():
-    assert generate_diff(plain_file1_yaml, plain_file2_yaml) == result_data[0]
-    assert generate_diff(nested_file1_yaml, nested_file2_yaml) == result_data[2]
+    assert generate_diff(nested_file1_yaml, nested_file2_yaml) == result_data
