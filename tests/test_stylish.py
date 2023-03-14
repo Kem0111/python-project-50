@@ -1,5 +1,6 @@
 from gendiff.engine import generate_diff
 import os
+import pytest
 
 
 def get_fixture_path(file_name):
@@ -20,13 +21,10 @@ nested_file1_yaml = get_fixture_path('nested_file1.yml')
 nested_file2_yaml = get_fixture_path('nested_file2.yaml')
 
 
-def test_stylish_json():
+@pytest.mark.parametrize("file1, file2", [
+    (nested_file1_json, nested_file2_json),
+    (nested_file1_json, nested_file2_yaml),
+    (nested_file1_yaml, nested_file2_yaml),
+])
+def test_stylish(file1, file2):
     assert generate_diff(nested_file1_json, nested_file2_json) == result_data
-
-
-def test_stylish_json_yaml():
-    assert generate_diff(nested_file1_json, nested_file2_yaml) == result_data
-
-
-def test_diff_stylish_yaml():
-    assert generate_diff(nested_file1_yaml, nested_file2_yaml) == result_data

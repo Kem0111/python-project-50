@@ -1,15 +1,14 @@
-import json
-import yaml
+from gendiff.function_tools.parser import parse_data
+import os
 
 
-def read_file(first_file_path, second_file_path):
-    first_file_data = get_file_data(first_file_path)
-    second_file_data = get_file_data(second_file_path)
+def read_file(file1_path, file2_path):
+    file1_format = os.path.splitext(file1_path)[1]
+    file2_format = os.path.splitext(file2_path)[1]
+    with open(file1_path, 'r') as file1,\
+         open(file2_path, 'r') as file2:
+        first_data = file1.read()
+        second_data = file2.read()
+    first_file_data = parse_data(first_data, file1_format)
+    second_file_data = parse_data(second_data, file2_format)
     return first_file_data, second_file_data
-
-
-def get_file_data(file_path):
-    with open(file_path, 'r') as file:
-        if file_path.endswith('json'):
-            return json.load(file)
-        return yaml.safe_load(file)

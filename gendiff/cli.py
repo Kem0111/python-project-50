@@ -11,6 +11,7 @@ def get_cli_args():
     parser.add_argument(
         "-f",
         "--format",
+        choices=['stylish', 'plain', 'json'],
         default='stylish',
         help="Set format of output"
     )
