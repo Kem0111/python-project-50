@@ -12,4 +12,3 @@ FORMAT = 'plain'
 ])
 def test_nested_files(file1, file2, format_):
     assert generate_diff(file1, file2, format_) == result_data
-
