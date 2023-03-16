@@ -1,30 +1,34 @@
-def get_diff(first_file_data, second_file_data, indent):
-    data_diff = {}
-    all_keys = set(first_file_data.keys()) | set(second_file_data.keys())
-    for key in sorted(all_keys):
-        if key in first_file_data and key in second_file_data:
-            diff = get_compare_dict(key, first_file_data,
-                                    second_file_data, indent)
-            data_diff.update(diff)
-        elif key in first_file_data and key not in second_file_data:
-            data_diff[f'{indent["removed"]}{key}'] = first_file_data[key]
-        else:
-            data_diff[f'{indent["added"]}{key}'] = second_file_data[key]
-    return data_diff
+def get_diff(old_dict, new_dict):
 
-
-def get_compare_dict(key, first_dict, second_dict, indent):
-    if first_dict[key] == second_dict[key]:
-        return {f'{indent["unchanged"]}{key}': first_dict[key]}
-    elif all(
-        isinstance(val.get(key), dict) for val in (first_dict, second_dict)
-    ):
+    def get_type(old_value, new_value):
+        if old_value == new_value:
+            return {
+                'type': 'unchanged',
+                'value': old_value
+            }
+        elif isinstance(old_value, dict) and isinstance(new_value, dict):
+            return {
+                'type': 'nested',
+                'value': get_diff(old_value, new_value)
+            }
         return {
-            f'{indent["unchanged"]}{key}': get_diff(first_dict[key],
-                                                    second_dict[key],
-                                                    indent)
+            'type': 'changed',
+            'value': {
+                'old_value': old_value,
+                'new_value': new_value
+            }
         }
-    return {
-        f'{indent["removed"]}{key}': first_dict[key],
-        f'{indent["added"]}{key}': second_dict[key]
-    }
+
+    data_diff = ({
+        key: get_type(old_dict[key], new_dict[key])
+        for key in set(old_dict.keys() & new_dict.keys())
+    })
+    data_diff.update({
+        key: {'type': 'removed', 'value': old_dict[key]}
+        for key in set(old_dict.keys() - new_dict.keys())
+    })
+    data_diff.update({
+        key: {'type': 'added', 'value': new_dict[key]}
+        for key in set(new_dict.keys() - old_dict.keys())
+    })
+    return {key: data_diff[key] for key in sorted(data_diff.keys())}

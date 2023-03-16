@@ -2,6 +2,7 @@ from tests import test_stylish
 from gendiff.engine import generate_diff
 import pytest
 
+
 result_data = test_stylish.read(test_stylish.get_fixture_path('result_plain.txt'))
 FORMAT = 'plain'
 

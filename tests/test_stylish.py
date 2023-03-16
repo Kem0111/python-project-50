@@ -27,4 +27,4 @@ nested_file2_yaml = get_fixture_path('nested_file2.yaml')
     (nested_file1_yaml, nested_file2_yaml),
 ])
 def test_stylish(file1, file2):
-    assert generate_diff(nested_file1_json, nested_file2_json) == result_data
+    assert generate_diff(file1, file2) == result_data

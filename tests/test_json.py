@@ -1,6 +1,7 @@
 import pytest
 from tests import test_stylish
 from gendiff.engine import generate_diff
+import json
 
 
 result = test_stylish.read(test_stylish.get_fixture_path('result.json'))
@@ -15,3 +16,4 @@ FORMAT = 'json'
 ])
 def test_json_files(file1, file2, format_):
     assert generate_diff(file1, file2, format_) == result
+    assert json.loads(generate_diff(file1, file2, format_))

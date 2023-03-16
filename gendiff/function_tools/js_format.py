@@ -1,9 +1,7 @@
 def make_js_format(val):
-    format_ = {
+    json_format = {
         'None': 'null',
         'True': 'true',
         'False': 'false'
     }
-    if str(val) in format_:
-        return format_[str(val)]
-    return val
+    return json_format.get(str(val), val)
