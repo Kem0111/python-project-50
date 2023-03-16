@@ -6,9 +6,9 @@ def stringify(data, output, path=''):
     def walk(key, val):
         status = val['type']
         if status not in output:
-            return stringify(val['value'], output, path=path+f"{key}.")
+            return stringify(val['value'], output, path=path + f"{key}.")
         return output[status].format(
-            path+key, *get_value(val, 'value', "old_value", "new_value")
+            path + key, *get_value(val, 'value', "old_value", "new_value")
         )
 
     res = (walk(key, val) for key, val in data.items() if walk(key, val))

@@ -15,8 +15,8 @@ def stringify(data: dict, symbols: dict, depth=1, spaces_count=0) -> str:
     def stringify_value(val):
         if isinstance(val, dict):
             return stringify(
-                val, symbols, depth=depth+1,
-                spaces_count=spaces_count+INDENT_COUNT
+                val, symbols, depth=depth + 1,
+                spaces_count=spaces_count + INDENT_COUNT
             )
         return make_js_format(val)
 

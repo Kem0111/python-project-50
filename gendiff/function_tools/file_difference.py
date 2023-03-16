@@ -21,14 +21,16 @@ def get_diff(old_dict, new_dict):
 
     data_diff = ({
         key: get_type(old_dict[key], new_dict[key])
-        for key in set(old_dict.keys() & new_dict.keys())
+        for key in old_dict.keys() & new_dict.keys()
     })
-    data_diff.update({
+    removed_val = {
         key: {'type': 'removed', 'value': old_dict[key]}
-        for key in set(old_dict.keys() - new_dict.keys())
-    })
-    data_diff.update({
+        for key in old_dict.keys() - new_dict.keys()
+    }
+    added_val = {
         key: {'type': 'added', 'value': new_dict[key]}
-        for key in set(new_dict.keys() - old_dict.keys())
-    })
+        for key in new_dict.keys() - old_dict.keys()
+    }
+    data_diff.update(removed_val)
+    data_diff.update(added_val)
     return {key: data_diff[key] for key in sorted(data_diff.keys())}
