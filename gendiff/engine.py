@@ -17,7 +17,7 @@ def generate_diff(file1_path, file2_path, formatter='stylish'):
     if formatter not in OUTPUT_FORMATS:
         raise ValueError(
             'Unsupported format. Expected {}'.format(OUTPUT_FORMATS.keys())
-            )
+        )
     file1_data, file2_data = read_files(file1_path, file2_path)
     file1_format, file2_format = extract_formats(file1_path, file2_path)
     data1 = parse_data(file1_data, file1_format)

@@ -12,5 +12,5 @@ result = test_stylish.read(test_stylish.get_fixture_path('result.json'))
     (test_stylish.nested_file1_yaml, test_stylish.nested_file2_yaml),
 ])
 def test_json_files(file1, file2, format_='json'):
-    assert generate_diff(file1, file2,  format_) == result
+    assert generate_diff(file1, file2, format_) == result
     assert json.loads(generate_diff(file1, file2, format_))
