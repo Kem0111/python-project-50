@@ -4,12 +4,11 @@ import pytest
 
 
 result_data = test_stylish.read(test_stylish.get_fixture_path('result_plain.txt'))
-FORMAT = 'plain'
 
 
-@pytest.mark.parametrize("file1, file2, format_", [
-    (test_stylish.nested_file1_json, test_stylish.nested_file2_json, FORMAT),
-    (test_stylish.nested_file1_yaml, test_stylish.nested_file2_yaml, FORMAT),
+@pytest.mark.parametrize("file1, file2", [
+    (test_stylish.nested_file1_json, test_stylish.nested_file2_json),
+    (test_stylish.nested_file1_yaml, test_stylish.nested_file2_yaml),
 ])
-def test_nested_files(file1, file2, format_):
+def test_nested_files(file1, file2, format_='plain'):
     assert generate_diff(file1, file2, format_) == result_data

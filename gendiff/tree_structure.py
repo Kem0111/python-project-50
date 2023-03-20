@@ -3,30 +3,27 @@ def get_diff(old_dict, new_dict):
     Make new updated dictionary with difference block
     based on given dicts
     '''
-
-    def get_type(old_value, new_value):
-        if old_value == new_value:
-            return {
+    data_diff = {}
+    for key in (old_dict.keys() & new_dict.keys()):
+        if old_dict[key] == new_dict[key]:
+            data_diff[key] = {
                 'type': 'unchanged',
-                'value': old_value
+                'value': old_dict[key]
             }
-        elif isinstance(old_value, dict) and isinstance(new_value, dict):
-            return {
+        elif isinstance(old_dict[key], dict) and isinstance(new_dict[key],
+                                                            dict):
+            data_diff[key] = {
                 'type': 'nested',
-                'value': get_diff(old_value, new_value)
+                'value': get_diff(old_dict[key], new_dict[key])
             }
-        return {
-            'type': 'changed',
-            'value': {
-                'old_value': old_value,
-                'new_value': new_value
+        else:
+            data_diff[key] = {
+                'type': 'changed',
+                'value': {
+                    'old_value': old_dict[key],
+                    'new_value': new_dict[key]
+                }
             }
-        }
-
-    data_diff = ({
-        key: get_type(old_dict[key], new_dict[key])
-        for key in old_dict.keys() & new_dict.keys()
-    })
     removed_keys = old_dict.keys() - new_dict.keys()
     added_keys = new_dict.keys() - old_dict.keys()
 

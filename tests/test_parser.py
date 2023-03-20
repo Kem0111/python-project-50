@@ -1,5 +1,5 @@
 import requests
-from gendiff.function_tools.parser import parse_data
+from gendiff.parser import parse_data
 
 
 json_data = requests.get("https://jsonplaceholder.typicode.com/posts/1").text
