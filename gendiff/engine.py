@@ -18,8 +18,9 @@ def generate_diff(file1_path, file2_path, formatter='stylish'):
         raise ValueError(
             'Unsupported format. Expected {}'.format(OUTPUT_FORMATS.keys())
         )
-    file1_data, file2_data = read_files(file1_path, file2_path)
-    file1_format, file2_format = extract_formats(file1_path, file2_path)
+    file1_data, file2_data = read_file(file1_path), read_file(file2_path)
+    file1_format = get_format(file1_path)
+    file2_format = get_format(file2_path)
     data1 = parse_data(file1_data, file1_format)
     data2 = parse_data(file2_data, file2_format)
     data_diff = get_diff(data1, data2)
@@ -27,13 +28,11 @@ def generate_diff(file1_path, file2_path, formatter='stylish'):
     return format_function(data_diff)
 
 
-def read_files(file1_path, file2_path):
-    with open(file1_path, 'r') as file1,\
-         open(file2_path, 'r') as file2:
-        first_data = file1.read()
-        second_data = file2.read()
-    return first_data, second_data
+def read_file(file_path):
+    with open(file_path, 'r') as file:
+        first_data = file.read()
+    return first_data
 
 
-def extract_formats(file1_path, file2_path):
-    return os.path.splitext(file1_path)[1], os.path.splitext(file2_path)[1]
+def get_format(file_path):
+    return os.path.splitext(file_path)[1]

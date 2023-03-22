@@ -1,4 +1,4 @@
-from gendiff.formatter.js_format import make_js_format
+import json
 
 
 PLAIN_OUTPUT = {
@@ -14,12 +14,12 @@ def plain(data: dict, path='') -> str:
     Convert type(dict) to str as a line-by-line output of changes
     '''
 
-    def stringify(key, val):
-        status = val['type']
-        if status not in PLAIN_OUTPUT:
-            return plain(val['value'], path=path + f"{key}.")
-        return PLAIN_OUTPUT[status].format(
-            path + key, *get_value(val, 'value', "old_value", "new_value")
+    def stringify(key, node):
+        type_ = node['type']
+        if type_ not in PLAIN_OUTPUT:
+            return plain(node['value'], path=path + f"{key}.")
+        return PLAIN_OUTPUT[type_].format(
+            path + key, *get_value(node, 'value', "old_value", "new_value")
         )
 
     res = (
@@ -40,4 +40,4 @@ def stringify_value(value):
         return '[complex value]'
     elif not isinstance(value, (type(None), bool, int)):
         return f"'{value}'"
-    return make_js_format(value)
+    return json.dumps(value)
