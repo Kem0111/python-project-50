@@ -1,7 +1,18 @@
-def get_diff(old_dict, new_dict):
+from typing import Any, Dict
+
+
+def get_diff(old_dict: dict, new_dict: dict) -> Dict[str, Dict[str, Any]]:
     '''
-    Make new updated dictionary with difference block
-    based on given dicts
+    Compare two dictionaries and generate a new dictionary representing the
+    differences between the input dictionaries.
+
+    Args:
+        old_dict: The first given dictionary to compare.
+        new_dict: The second given dictionary to compare.
+
+    Returns:
+        A new dictionary representing the differences between the given
+        dictionaries, including added, removed, and changed keys and values.
     '''
     data_diff = {}
     for key in (old_dict.keys() & new_dict.keys()):
@@ -27,9 +38,9 @@ def get_diff(old_dict, new_dict):
     removed_keys = old_dict.keys() - new_dict.keys()
     added_keys = new_dict.keys() - old_dict.keys()
 
-    def update_data_diff(keys, status, given_dict):
+    def update_data_diff(keys, type_, node):
         for key in keys:
-            data_diff[key] = {'type': status, 'value': given_dict[key]}
+            data_diff[key] = {'type': type_, 'value': node[key]}
 
     update_data_diff(removed_keys, 'removed', old_dict)
     update_data_diff(added_keys, 'added', new_dict)

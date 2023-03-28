@@ -1,3 +1,4 @@
+from typing import Callable, Dict
 from gendiff.formatter.json import json
 from gendiff.formatter.stylish import stylish
 from gendiff.formatter.plain import plain
@@ -6,7 +7,7 @@ from gendiff.parser import parse_data
 import os
 
 
-OUTPUT_FORMATS = {
+OUTPUT_FORMATS: Dict[str, Callable] = {
     'stylish': stylish,
     'plain': plain,
     'json': json
@@ -14,6 +15,19 @@ OUTPUT_FORMATS = {
 
 
 def generate_diff(file1_path, file2_path, formatter='stylish'):
+    """
+    Compare two files and generate a diff string in the specified format.
+
+    Args:
+        file1_path: Path to the first file.
+        file2_path: Path to the second file.
+        formatter: Output format for the diff string (default: 'stylish').
+
+    Returns:
+        A formatted diff string representing the differences
+        between the two files.
+    """
+
     if formatter not in OUTPUT_FORMATS:
         raise ValueError(
             'Unsupported format. Expected {}'.format(OUTPUT_FORMATS.keys())
